@@ -22,8 +22,8 @@ function init() {
         var score = 0;
         //When the quiz begins time remaining variable is assigned a value of 10 seconds per each question then will decrement by 1 seconds. If the user is wrong the time remaining will be deducted by 10.
         timeRemaining = numQuestions * 10;
-        timeRemainingEl.setAttribute("vale",timeRemaining);
-        
+        timeRemainingEl.setAttribute("value",timeRemaining);
+
 
     }
 
