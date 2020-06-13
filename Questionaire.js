@@ -16,7 +16,7 @@ var questions = [
         answer: "var fun = function bar{ }"
     },
     {
-        title: "Q4. Which are the correct "if" statements to execute certain code if “x” is equal to 2?",
+        title: "Q4. Which are the correct 'if' statements to execute certain code if “x” is equal to 2?",
         options: ["if(x 2)", "if(x = 2)", "if(x == 2)", "if(x != 2 )"],
         answer: "if(x == 2)"
     },
