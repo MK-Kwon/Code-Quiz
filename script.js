@@ -37,6 +37,8 @@ function init() {
             timeRemainingEl.setAttribute("value", timeRemaining);
         }, 1000);
 
+        var clickTimeout = false;
+
         function createQuiz(questionNum) {
             // Once the quiz session begins, the header has the question and the answer buttons have a correct answer for the question.
             quizContainerEl.innerHTML = "";
@@ -84,7 +86,39 @@ function init() {
                 buttonEl.setAttribute("type", "button");
                 buttonEl.innerHTML = questions[currentQuestion - 1].choices[i];
                 colEl2.append(buttonEl);
-                
+
+                buttonEl.addEventListener("click", function () {
+                    if (clickTimeout) {
+                        return;
+                    }
+                    clickTimeout = true;
+                    clearInterval(interval);
+                    var colEl = quizContainerEl.children[0].children[1];
+                    var rowEl = document.createElement("div");
+                    rowEl.setAttribute("class", "row border-top");
+                    colEl.append(rowEl);
+
+                    colEl = document.createElement("div");
+                    colEl.setAttribute("class", "col-12");
+                    rowEl.append(colEl);
+
+                    var parEl = document.createElement("p");
+                    colEl.append(parEl);
+                    if (this.innerHTML === questions[currentQuestion - 1].answer) {
+                        parEl.innerHTML = "Correct!";
+                    } else {
+                        parEl.innerHTML = "Incorrect";
+                        timeRemaining = timeRemaining - 15;
+                        if (timeRemaining < 0) {
+                            timeRemaining = 0;
+                        }
+                        timeRemainingEl.setAttribute("value", timeRemaining);
+                    }
+                    currentQuestion++;
+                    if (currentQuestion > questions.length) {
+                        score = timeRemaining;
+                    }
+                });
             }
 
 
