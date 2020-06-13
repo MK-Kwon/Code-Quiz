@@ -85,12 +85,12 @@ function init() {
             colEl.append(headerEl);
 
             colEl = quizContainerEl.children[0].children[1];
-            for (let i = 0; i < 4; i++) {
-                let rowEl = document.createElement("div");
+            for (var i = 0; i < 4; i++) {
+                var rowEl = document.createElement("div");
                 rowEl.setAttribute("class", "row mb-1");
                 colEl.append(rowEl);
 
-                let colEl2 = document.createElement("div");
+                var colEl2 = document.createElement("div");
                 colEl2.setAttribute("class", "col-12");
                 rowEl.append(colEl2);
 
@@ -182,17 +182,17 @@ function init() {
         quizContainerEl.setAttribute("class", "container d-none");
         finalContainerEl.setAttribute("class", "container d-none");
         highscoreContainerEl.setAttribute("class", "container");
-        let colEl = document.getElementById("highscore-table");
+        var colEl = document.getElementById("highscore-table");
         for (i = 0; i < highScores.length; i++) {
-            let rowEl = document.createElement("div");
+            var rowEl = document.createElement("div");
             rowEl.setAttribute("class", "row mb-1");
             colEl.append(rowEl);
 
-            let colEl2 = document.createElement("div");
+            var colEl2 = document.createElement("div");
             colEl2.setAttribute("class", "col-12 text-center");
             rowEl.append(colEl2);
 
-            let parEl = document.createElement("div");
+            var parEl = document.createElement("div");
             parEl.innerHTML = "Initials: " + highScores[i].initials + "   Score: " + highScores[i].highScore;
             colEl2.append(parEl);
         }
