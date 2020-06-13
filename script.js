@@ -119,32 +119,46 @@ function init() {
                     if (currentQuestion > questions.length) {
                         score = timeRemaining;
                     }
-                    setTimeout(function() {
-                        if(currentQuestion > questions.length) {
-                            quizContainerEl.setAttribute("class","container empty");
-                            finalContainerEl.setAttribute("class","container");
-                            finalScoreEl.setAttribute("value",score);
+                    setTimeout(function () {
+                        if (currentQuestion > questions.length) {
+                            quizContainerEl.setAttribute("class", "container empty");
+                            finalContainerEl.setAttribute("class", "container");
+                            finalScoreEl.setAttribute("value", score);
 
-                        }else{
+                        } else {
                             createQuiz(currenQuestion);
                             clickTimeout = false;
-                            interval = setInterval(function() {
+                            interval = setInterval(function () {
                                 if (timeRemaining < 1) {
                                     clearInterval(interval);
-                                    quizContainerEl.setAttribute("class","container empty");
-                                    finalContainerEl.setAttribute("class","container");
+                                    quizContainerEl.setAttribute("class", "container empty");
+                                    finalContainerEl.setAttribute("class", "container");
                                     return;
                                 }
                                 timeRemaining = timeRemaining - 1;
-                                timeRemainingEl.setAttribute("value",timeRemaining);
-                            },1000);
+                                timeRemainingEl.setAttribute("value", timeRemaining);
+                            }, 1000);
                         }
-                    },2000);
+                    }, 2000);
                 });
             }
 
 
         }
-        
+        function highScore() {
+            var initialsEl = document.getElementById("initials-entry");
+            var newHighscore = {
+                initials: initialsEl.value,
+                highScore: score
+            };
+            console.log(newHighscore);
+            highScores.push(newHighscore);
+            console.log(highScores);
+            localStorage.setItem("scores", JSON.stringify(highScores));
 
+        }
+        submitButtonEl.addEventListener("click", highScore);
+        createQuiz(currentQuestions);
     }
+
+    
