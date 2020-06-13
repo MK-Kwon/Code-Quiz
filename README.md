@@ -11,4 +11,8 @@ Once the quiz is over the user will get to leave their initials and can view the
 
 The challenge I came across with while creating the application was to write html from javaScript to make it dynamic rather than writing the code directly in the html which provided me a great opportunity to practice using the DOM.
 
+Deployed website
+https://mk-kwon.github.io/Code-Quiz/
 
+![screen shot1](https://user-images.githubusercontent.com/61897671/84574512-08cda680-ade6-11ea-92a5-7f7cf966da31.png)
+![screen shot2](https://user-images.githubusercontent.com/61897671/84574513-09fed380-ade6-11ea-99ae-b3512dffed17.png)
