@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 
 <body>
-
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light" style="background-color: #aceaee;">
         <div class="container navbar-container mx-0">
             <div class="row w-100">
                 <div class="col-4 col-md-2">
-                    <button type="button" class="btn btn-primary">View High Scores</button>
+                    <button type="button" id="highscore-button" class="btn btn-info"
+                        style="background-color: #e71486;">View High Scores</button>
                 </div>
                 <div class="col-3 col-md-7"></div>
-                <div class="col-7 col-md-3">
+                <div class="col-5 col-md-3">
                     <form>
                         <div class="form-group row">
-                            <label for="time-remaining" class="col-lg-5 col-form-label">Time Remaining</label>
+                            <label for="time-remaining" class="col-sm-7 col-form-label">Time Remaining</label>
                             <div class="col-sm-5">
                                 <input type="number" readonly class="form-control" id="time-remaining" placeholder="0">
                             </div>
@@ -35,30 +33,38 @@
             </div>
         </div>
     </nav>
-    <div class="card text-center">
-        <div class="card-header">
-            
-            <h1 style="font-style: italic">Code Quiz</Code></span></h1>
+
+    <div id="landing-container" class="container">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h1>Code Quiz</h1>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title"><span style="color:#585858"> It's time to challenge yourself with some</span><span style="color:#e71486"> code
-                    quiz!</span></h5>
-            <p class="card-text"><br><span stye="text-align: left">Answer all the questions before time runs out!<br> Timer will be subtracted by 10 seconds for each incorrect answer. <br>The more time left the higher your score gets!</span></p>
-            <a href="#" class="btn btn-primary">START QUIZ</a>
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h5 class="card-title"><span style="color:#585858"> It's time to challenge yourself with
+                        some</span><span style="color:#e71486"> code quiz!</span></h5>
+                <p class="card-text"><br><span stye="text-align: left">Answer all the questions before time runs
+                        out!<br> Timer will be subtracted by 10 seconds for each incorrect answer. <br>The more time
+                        left the higher your score gets!</span></p>
+            </div>
         </div>
-        <div class="card-footer text-muted">
-           
+        <div class="row">
+            <div class="col-12 text-center">
+                <button id="start-button" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
+            </div>
         </div>
     </div>
 
-    <div id="quiz-container" class="container d-none"></div>
+    <div id="quiz-container" class="container d-none">
 
+    </div>
     <div id="final-container" class="container d-none">
         <div class="row">
             <div class="col-12 text-center">
                 <form>
                     <div class="form-group row">
-                        <label for="final-score" class="col-sm-7 col-form-label"><h2>Your Final Score</h2></label>
+                        <label for="final-score" class="col-sm-7 col-form-label">Final Score</label>
                         <div class="col-sm-5">
                             <input type="number" readonly class="form-control" id="final-score" placeholder="0">
                         </div>
@@ -66,8 +72,8 @@
                 </form>
                 <form>
                     <div class="form-group">
-                      <label for="initials-entry">Initials</label>
-                      <input type="text" class="form-control" id="initials-entry" placeholder="Enter initials">
+                        <label for="initials-entry">Initials</label>
+                        <input type="text" class="form-control" id="initials-entry" placeholder="Enter initials">
                     </div>
                     <button id="submit-initials" type="button" class="btn btn-primary">Submit</button>
                 </form>
@@ -90,8 +96,6 @@
 
     <script src="./Questionaire.js"></script>
     <script src="./script.js"></script>
-</body>
-</html>s
 </body>
 
 </html>
