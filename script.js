@@ -24,6 +24,18 @@ function init() {
         timeRemaining = numQuestions * 10;
         timeRemainingEl.setAttribute("value",timeRemaining);
 
+        var interval = setInterval(function() {
+            if (timeRemaining < 1) {
+                clearInterval(interval);
+                // if the timer reaches zero or the last question is answered, the quiz container disappears and final container appears.
+                quizContainerEl.setAttribute("class", "container empty");
+                finalContainerEl.setAttribute("class", "container");
+                return;
+            }
+            timeRemaining = timeRemaining - 1;
+            timeRemainingEl.setAttribute("value",timeRemaining);
+        },1000);
+
 
     }
 
