@@ -88,6 +88,7 @@ function init() {
                 colEl2.append(buttonEl);
 
                 buttonEl.addEventListener("click", function () {
+                    // If user clicks a button and it is a correct answer - message will display "Correct" other wise will display "Incorrect"
                     if (clickTimeout) {
                         return;
                     }
@@ -118,11 +119,32 @@ function init() {
                     if (currentQuestion > questions.length) {
                         score = timeRemaining;
                     }
+                    setTimeout(function() {
+                        if(currentQuestion > questions.length) {
+                            quizContainerEl.setAttribute("class","container empty");
+                            finalContainerEl.setAttribute("class","container");
+                            finalScoreEl.setAttribute("value",score);
+
+                        }else{
+                            createQuiz(currenQuestion);
+                            clickTimeout = false;
+                            interval = setInterval(function() {
+                                if (timeRemaining < 1) {
+                                    clearInterval(interval);
+                                    quizContainerEl.setAttribute("class","container empty");
+                                    finalContainerEl.setAttribute("class","container");
+                                    return;
+                                }
+                                timeRemaining = timeRemaining - 1;
+                                timeRemainingEl.setAttribute("value",timeRemaining);
+                            },1000);
+                        }
+                    },2000);
                 });
             }
 
 
         }
-
+        
 
     }
