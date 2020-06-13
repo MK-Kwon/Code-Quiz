@@ -69,10 +69,26 @@ function init() {
             headerEl.innerHTML = questions[questionNum - 1].title;
             colEl.append(headerEl);
 
+            colEl = quizContainerEl.children[0].children[1];
+            for (let i = 0; i < 4; i++) {
+                let rowEl = document.createElement("div");
+                rowEl.setAttribute("class", "row mb-1");
+                colEl.append(rowEl);
+
+                let colEl2 = document.createElement("div");
+                colEl2.setAttribute("class", "col-12");
+                rowEl.append(colEl2);
+
+                buttonEl = document.createElement("button");
+                buttonEl.setAttribute("class", "btn btn-primary");
+                buttonEl.setAttribute("type", "button");
+                buttonEl.innerHTML = questions[currentQuestion - 1].choices[i];
+                colEl2.append(buttonEl);
+                
+            }
+
+
         }
 
 
     }
-
-
-}
